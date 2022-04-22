@@ -1,0 +1,97 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>False</UseWindowsForms>
+    <StartupObject>随机抽取学号.App</StartupObject>
+    <AssemblyName>随机抽取学号</AssemblyName>
+    <RootNamespace>随机抽取学号</RootNamespace>
+    <ApplicationIcon>032711513509_01372057.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="107400736_1535981347835_mthumb.jpg" />
+    <None Remove="1372057.png" />
+    <None Remove="ChMkJlbKxveIJmNDAAlJIHaXmLkAALHtAIRSsgACUk4618.jpg" />
+    <None Remove="ChMkJlbKxWaIK08_AAVlqF5QLGsAALHVQJHWLYABWXA438.jpg" />
+    <None Remove="h5.png" />
+    <None Remove="img0%282%29.png" />
+    <None Remove="LenovoWallPaper.jpg" />
+    <None Remove="Snipaste_2022-04-19_18-37-45.png" />
+    <None Remove="vslogo.png" />
+    <None Remove="x.png" />
+    <None Remove="xian.png" />
+    <None Remove="主页.png" />
+    <None Remove="信息.png" />
+    <None Remove="图片1.jpg" />
+    <None Remove="图片1.png" />
+    <None Remove="图片10.png" />
+    <None Remove="图片11.png" />
+    <None Remove="图片13.png" />
+    <None Remove="图片2.png" />
+    <None Remove="图片3.png" />
+    <None Remove="图片4.png" />
+    <None Remove="图片7.jpg" />
+    <None Remove="图片8.jpg" />
+    <None Remove="图片8.png" />
+    <None Remove="更新.png" />
+    <None Remove="橙.png" />
+    <None Remove="淡.png" />
+    <None Remove="箭头.png" />
+    <None Remove="线.png" />
+    <None Remove="自定义.png" />
+    <None Remove="自定义圆.png" />
+    <None Remove="虚化.png" />
+    <None Remove="设置.png" />
+    <None Remove="设置绿.png" />
+    <None Remove="话.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="032711513509_01372057.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="107400736_1535981347835_mthumb.jpg" />
+    <Resource Include="1372057.png" />
+    <Resource Include="ChMkJlbKxveIJmNDAAlJIHaXmLkAALHtAIRSsgACUk4618.jpg" />
+    <Resource Include="ChMkJlbKxWaIK08_AAVlqF5QLGsAALHVQJHWLYABWXA438.jpg" />
+    <Resource Include="h5.png" />
+    <Resource Include="img0(2).png" />
+    <Resource Include="LenovoWallPaper.jpg" />
+    <Resource Include="Snipaste_2022-04-19_18-37-45.png" />
+    <Resource Include="vslogo.png" />
+    <Resource Include="xian.png" />
+    <Resource Include="主页.png" />
+    <Resource Include="信息.png" />
+    <Resource Include="图片1.jpg" />
+    <Resource Include="图片1.png" />
+    <Resource Include="图片10.png" />
+    <Resource Include="图片11.png" />
+    <Resource Include="图片13.png" />
+    <Resource Include="图片2.png" />
+    <Resource Include="图片3.png" />
+    <Resource Include="图片4.png" />
+    <Resource Include="图片7.jpg" />
+    <Resource Include="图片8.jpg" />
+    <Resource Include="图片8.png" />
+    <Resource Include="更新.png" />
+    <Resource Include="橙.png" />
+    <Resource Include="淡.png" />
+    <Resource Include="箭头.png" />
+    <Resource Include="自定义.png" />
+    <Resource Include="自定义圆.png" />
+    <Resource Include="虚化.png" />
+    <Resource Include="设置.png" />
+    <Resource Include="设置绿.png" />
+    <Resource Include="话.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Themes\" />
+  </ItemGroup>
+
+</Project>

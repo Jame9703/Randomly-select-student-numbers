@@ -1,0 +1,597 @@
+﻿<Window x:Class="随机抽取学号.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:随机抽取学号"
+        mc:Ignorable="d"
+        Title="随机抽取学号" Height="380" Loaded="Window_Loaded" WindowStyle="None" Background="Transparent"  AllowsTransparency="True" MouseLeftButtonDown="Window_MouseLeftButtonDown" Icon="/1372057.png" Width="660" MaxWidth="660" MaxHeight="380">
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Opacity="0.8"/>
+        </Grid.Background>
+        <Border BorderThickness="5" BorderBrush="#FF0153D7"  CornerRadius="0,10,10,0" x:Name="top" Grid.ColumnSpan="2" Margin="74,0,0,0">
+            <Border.Background>
+                <ImageBrush ImageSource="/虚化.png" TileMode="None" Opacity="1"/>
+            </Border.Background>
+            <Grid Margin="-5,-5,-5,-5">
+
+                <Border BorderBrush="#FF6CC3EB" Margin="130,89,135,236" BorderThickness="2" CornerRadius="10">
+                    <Border.Background>
+                        <SolidColorBrush Color="#FFEFF4F9" Opacity="1"/>
+                    </Border.Background>
+                    <TextBlock x:Name="Text" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="50" Width="276" TextAlignment="Left" FontSize="42">
+                        <TextBlock.Background>
+                            <SolidColorBrush Color="#FFEFF4F9" Opacity="1"/>
+                        </TextBlock.Background>
+                    </TextBlock>
+                </Border>
+
+                <Button x:Name="滚动"  Style="{DynamicResource BtnUpLoadStyle}" Content="滚动" Margin="44,331,425,12" Background="#FFC5D9C3" Click="滚动_Click" BorderBrush="#FF39F127" Foreground="Black" FontSize="24">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="停止"  Style="{DynamicResource BtnUpLoadStyle}" Content="停止" Margin="250,331,230,12" Background="#FFF0E6B7" Click="停止_Click" BorderBrush="#FFFF9504" Foreground="Black" FontSize="24">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="退出"  Style="{DynamicResource BtnUpLoadStyle}" Content="退出" Margin="455,331,27,12" Background="#FFF3B790" BorderBrush="#FFFF0404" Foreground="Black" Click="Button_Click_4" FontSize="24">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+
+
+                <Button x:Name="信息按钮"  Margin="54,173,462,161" Click="信息按钮_Click" ToolTip="信息">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/图片10.png"/>
+                    </Button.Background>
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Image Margin="2" Source="/图片10.png" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="话按钮"  Margin="66,247,474,88" Click="话按钮_Click" ToolTip="话">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/图片10.png"/>
+                    </Button.Background>
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Image Margin="2" Source="/图片11.png" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="更新按钮"  Margin="475,204,68,130" Click="话按钮_Click" ToolTip="更新">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/图片10.png"/>
+                    </Button.Background>
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Image Margin="2,2,2,2" Source="/更新.png" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="自定义"  Margin="466,94,59,240" Click="自定义圆_Click" ToolTip="自定义抽取" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/自定义.png"/>
+                    </Button.Background>
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Image Margin="2,2,2,2" Source="/自定义.png" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Content="X" Margin="520,15,15,335" FontFamily="Comic Sans MS" FontSize="22" Click="Button_Click" FontWeight="Normal" Background="{x:Null}" BorderBrush="Red" ToolTip="关闭" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Template >
+                        <ControlTemplate TargetType="{x:Type Button}" >
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="3,3,3,3">
+                                <Border.Background>
+                                    <Brush>#FFDDDDDD</Brush>
+                                </Border.Background>
+                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+
+
+                <Button Content="O" Margin="442,14,90,335" FontFamily="Comic Sans MS" FontSize="22" Click="Button_Click_2" FontWeight="Normal" BorderBrush="#FF16B400" ToolTip="坐标(0,0)" >
+                    <Button.Template >
+                        <ControlTemplate TargetType="{x:Type Button}" >
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="3,3,3,3">
+                                <Border.Background>
+                                    <Brush>#FFDDDDDD</Brush>
+                                </Border.Background>
+                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+
+
+                <Button Content="—" Margin="365,15,165,335" FontFamily="Comic Sans MS" FontSize="22" Click="Button_Click_3" FontWeight="Bold" BorderBrush="#FFA47D02" ToolTip="最小化" >
+                    <Button.Template >
+                        <ControlTemplate TargetType="{x:Type Button}" >
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="3,3,3,3">
+                                <Border.Background>
+                                    <Brush>#FFDDDDDD</Brush>
+                                </Border.Background>
+                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+
+
+
+                <Button Content="？" Margin="285,15,247,335" FontFamily="Comic Sans MS" FontSize="22" FontStyle="Normal" Background="#FFE29DE0" BorderBrush="#FF004FFD" FontWeight="Bold" Click="帮助_Click" ToolTip="帮助" >
+                    <Button.Template >
+                        <ControlTemplate TargetType="{x:Type Button}" >
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="3,3,3,3">
+                                <Border.Background>
+                                    <Brush>#FFDDDDDD</Brush>
+                                </Border.Background>
+                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+
+
+
+                <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="16,56,0,0" VerticalAlignment="Top" Width="152" Background="{x:Null}" Height="28" FontSize="16" BorderBrush="#FFE2DCDC">
+                    <ComboBox.Style>
+                        <Style  TargetType="{x:Type ComboBox}">
+                            <Setter Property="Width" Value="120"/>
+                            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                                        <Border  BorderBrush="Gray" BorderThickness="1" CornerRadius="5" Background="Transparent">
+                                            <Grid>
+                                                <!--下拉箭头-->
+                                                <ToggleButton ClickMode="Press" Focusable="False" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="2" MinWidth="0" MinHeight="0" Width="Auto">
+                                                    <ToggleButton.Style>
+                                                        <Style TargetType="{x:Type ToggleButton}">
+                                                            <Setter Property="MinWidth" Value="0"/>
+                                                            <Setter Property="MinHeight" Value="0"/>
+                                                            <Setter Property="Width" Value="Auto"/>
+                                                            <Setter Property="Height" Value="Auto"/>
+                                                            <Setter Property="Background" Value="Transparent"/>
+                                                            <Setter Property="BorderBrush" Value="#00000000"/>
+                                                            <Setter Property="BorderThickness" Value="2"/>
+                                                            <Setter Property="Template">
+                                                                <Setter.Value>
+                                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                                        <DockPanel Background="{TemplateBinding Background}" LastChildFill="False" SnapsToDevicePixels="True">
+                                                                            <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"  DockPanel.Dock="Right" >
+                                                                                <Path Data="M0,0L3.5,4 7,0z" Fill="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                            </Border>
+                                                                        </DockPanel>
+                                                                        <ControlTemplate.Triggers>
+                                                                            <Trigger Property="IsChecked" Value="True"/>
+                                                                        </ControlTemplate.Triggers>
+                                                                    </ControlTemplate>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                            <Style.Triggers>
+                                                                <Trigger Property="IsEnabled" Value="False">
+                                                                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+                                                                </Trigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </ToggleButton.Style>
+                                                </ToggleButton>
+                                                <!--项内容-->
+                                                <ContentPresenter  IsHitTestVisible="False" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" VerticalAlignment="Center" Margin="3" HorizontalAlignment="Stretch" />
+                                                <TextBox x:Name="PART_EditableTextBox" HorizontalAlignment="Stretch" Focusable="True" Visibility="Collapsed" IsReadOnly="False"/>
+                                                <!--下拉显示面板HorizontalOffset:设置下拉面板的相对位置-->
+                                                <Popup HorizontalOffset="-1" Width="{TemplateBinding ActualWidth}"
+                                       IsOpen="{TemplateBinding IsDropDownOpen}" Focusable="False"    PopupAnimation="Slide">
+                                                    <Grid  SnapsToDevicePixels="True" HorizontalAlignment="Stretch">
+                                                        <Border  BorderThickness="1,1,1,1" BorderBrush="Gray" HorizontalAlignment="Stretch" CornerRadius="5" Background="White"/>
+                                                        <ScrollViewer  SnapsToDevicePixels="True" HorizontalAlignment="Stretch" >
+                                                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" HorizontalAlignment="Stretch" />
+                                                        </ScrollViewer>
+                                                    </Grid>
+                                                </Popup>
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ComboBox.Style>
+                </ComboBox>
+                <ComboBox x:Name="comboBox2" Margin="211,56,226,294" SelectionChanged="comboBox2_SelectionChanged" Background="{x:Null}" BorderBrush="#FFF3B3B3" FontSize="16" RenderTransformOrigin="0.5,0.5" Width="Auto">
+                    <ComboBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-0.31"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ComboBox.RenderTransform>
+                    <ComboBox.Style>
+                        <Style  TargetType="{x:Type ComboBox}">
+                            <Setter Property="Width" Value="120"/>
+                            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                                        <Border  BorderBrush="Gray" BorderThickness="1" CornerRadius="5" Background="Transparent">
+                                            <Grid>
+                                                <!--下拉箭头-->
+                                                <ToggleButton ClickMode="Press" Focusable="False" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="2" MinWidth="0" MinHeight="0" Width="Auto">
+                                                    <ToggleButton.Style>
+                                                        <Style TargetType="{x:Type ToggleButton}">
+                                                            <Setter Property="MinWidth" Value="0"/>
+                                                            <Setter Property="MinHeight" Value="0"/>
+                                                            <Setter Property="Width" Value="Auto"/>
+                                                            <Setter Property="Height" Value="Auto"/>
+                                                            <Setter Property="Background" Value="Transparent"/>
+                                                            <Setter Property="BorderBrush" Value="#00000000"/>
+                                                            <Setter Property="BorderThickness" Value="2"/>
+                                                            <Setter Property="Template">
+                                                                <Setter.Value>
+                                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                                        <DockPanel Background="{TemplateBinding Background}" LastChildFill="False" SnapsToDevicePixels="True">
+                                                                            <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"  DockPanel.Dock="Right" >
+                                                                                <Path Data="M0,0L3.5,4 7,0z" Fill="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                            </Border>
+                                                                        </DockPanel>
+                                                                        <ControlTemplate.Triggers>
+                                                                            <Trigger Property="IsChecked" Value="True"/>
+                                                                        </ControlTemplate.Triggers>
+                                                                    </ControlTemplate>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                            <Style.Triggers>
+                                                                <Trigger Property="IsEnabled" Value="False">
+                                                                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+                                                                </Trigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </ToggleButton.Style>
+                                                </ToggleButton>
+                                                <!--项内容-->
+                                                <ContentPresenter  IsHitTestVisible="False" Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" VerticalAlignment="Center" Margin="3" HorizontalAlignment="Stretch" />
+                                                <TextBox x:Name="PART_EditableTextBox" HorizontalAlignment="Stretch" Focusable="True" Visibility="Collapsed" IsReadOnly="False"/>
+                                                <!--下拉显示面板HorizontalOffset:设置下拉面板的相对位置-->
+                                                <Popup HorizontalOffset="-1" Width="{TemplateBinding ActualWidth}"
+                                       IsOpen="{TemplateBinding IsDropDownOpen}" Focusable="False"    PopupAnimation="Slide">
+                                                    <Grid  SnapsToDevicePixels="True" HorizontalAlignment="Stretch">
+                                                        <Border  BorderThickness="1,1,1,1" BorderBrush="Gray" HorizontalAlignment="Stretch" CornerRadius="5" Background="White"/>
+                                                        <ScrollViewer  SnapsToDevicePixels="True" HorizontalAlignment="Stretch" >
+                                                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" HorizontalAlignment="Stretch" />
+                                                        </ScrollViewer>
+                                                    </Grid>
+                                                </Popup>
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ComboBox.Style>
+                </ComboBox>
+                <Image HorizontalAlignment="Left" Height="40" Margin="15,8,0,0" VerticalAlignment="Top" Width="43" Source="/1372057.png"/>
+                <Label x:Name="随机抽取学号" Content="随机抽取学号" Margin="52,4,343,329" FontSize="30" FontFamily="Microsoft YaHei UI" FontWeight="Normal" FontStyle="Normal"/>
+                <CheckBox x:Name="checkBox1" Content="不许偷看" Margin="20,103,465,250" FontSize="20" Checked="checkBox1_Checked" Unchecked="checkBox1_Unchecked" FlowDirection="LeftToRight"/>
+                <Image Margin="396,51,134,291" Source="/图片13.png"/>
+                <Label Content="班级" Margin="445,55,17,288" FontSize="20" FontWeight="Bold" FontFamily="Segoe UI">
+                    <Label.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF562BBA" Offset="1"/>
+                            <GradientStop Color="#FFFF028B" Offset="0"/>
+                            <GradientStop Color="#FFB40CFD" Offset="0.657"/>
+                            <GradientStop Color="#FFFD07F7" Offset="0.375"/>
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Image x:Name="话" Margin="44,247,513,97" Source="/xian.png" Visibility="Collapsed"/>
+                <Image x:Name="信息" Margin="44,176,512,164" Source="/xian.png"/>
+                <Border BorderBrush="#FF6CC3EB" Margin="116,160,136,87" BorderThickness="2" CornerRadius="2">
+                    <Border.Background>
+                        <SolidColorBrush Color="White" Opacity="0.5"/>
+                    </Border.Background>
+                    <TextBlock x:Name="Text1" TextWrapping="Wrap" Text="———————信息————————                            随机抽取学号，版本V1.0.6.417_Release" Margin="8,-2,17,-2" FontSize="16" FontFamily="Microsoft YaHei"/>
+                </Border>
+                <Border x:Name="Border" BorderBrush="#FFEE6363" Margin="130,89,136,236" BorderThickness="2" CornerRadius="10" Background="#FFF1B0B0" Visibility="Collapsed">
+                    <Grid x:Name="不许偷看" Margin="8,0,15,0" Background="#FFF1B0B0" Visibility="Visible" Height="44">
+                        <Image Margin="8,0,220,-4" Source="/图片2.png"/>
+                        <Label Content="不许偷看" Margin="80,4,110,4" FontSize="20"/>
+                        <Label x:Name="状态" Content="(未在滚动)" Margin="179,10,47,6"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+        <Border BorderThickness="5" BorderBrush="#FF0153D7"  CornerRadius="0,10,10,0" x:Name="视图" Grid.ColumnSpan="2" Margin="0,0,581,0" RenderTransformOrigin="0.5,0.5">
+            <Border.Background>
+                <SolidColorBrush Color="White" Opacity="0.6"/>
+            </Border.Background>
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+            <Grid Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="380" VerticalAlignment="Center" Width="58" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Button x:Name="主页"  Margin="-2,0,10,318" ToolTip="主页" RenderTransformOrigin="0.5,0.5" Background="#FFD65656" OpacityMask="White" Click="主页_Click" >
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Image Margin="2,2,2,2" Source="/主页.png" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="自定义圆"  Margin="0,67,11,262" ToolTip="自定义抽取" RenderTransformOrigin="0.5,0.5" Background="#FFD65656" OpacityMask="White" Click="自定义圆_Click" >
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Image Margin="2,2,2,2" Source="/自定义圆.png" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="帮助"  Margin="-4,130,4,200" ToolTip="帮助" RenderTransformOrigin="0.5,0.5" Background="#FFD65656" OpacityMask="White" Click="帮助_Click" >
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Image Margin="2,2,2,2" Source="h5.png" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button x:Name="设置1"  Margin="-6,190,4,145" ToolTip="设置" RenderTransformOrigin="0.5,0.5" Background="#FFD65656" OpacityMask="White" Click="设置1_Click" >
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Image Margin="2,2,6,-10" Source="设置绿.png" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Image x:Name="_1" Source="/橙.png" Margin="38,13,-8,331"/>
+                <Image x:Name="_2" Source="/橙.png" Margin="38,74,-8,270" Visibility="Collapsed"/>
+                <Image x:Name="_3" Source="/橙.png" Margin="38,137,-8,207" Visibility="Collapsed"/>
+                <Image x:Name="_4" Source="/橙.png" Margin="38,199,-8,145" Visibility="Collapsed"/>
+            </Grid>
+        </Border>
+        <Border BorderThickness="5" BorderBrush="#FF0153D7"  CornerRadius="0,10,10,0" x:Name="top1" Grid.ColumnSpan="2" Margin="70,0,0,0" Visibility="Collapsed">
+            <Border.Background>
+                <ImageBrush ImageSource="/图片1.jpg" TileMode="None" Opacity="1"/>
+            </Border.Background>
+            <Grid Margin="-5,-5,-5,-5">
+                <Label Content="分隔符：" HorizontalAlignment="Left" Height="30" Margin="10,5,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
+                <ComboBox x:Name="ComboBox1" HorizontalAlignment="Left" Height="29" Margin="10,35,0,0" VerticalAlignment="Top" Width="155"/>
+                <Label Content="从" HorizontalAlignment="Left" Margin="4,69,0,0" VerticalAlignment="Top" Height="45" Width="45" FontSize="20"/>
+                <Border BorderBrush="#FF00A3FF" Margin="38,69,414,272" BorderThickness="2" CornerRadius="10">
+                    <Border.Background>
+                        <SolidColorBrush Color="#FFEFF4F9" Opacity="1"/>
+                    </Border.Background>
+                    <TextBox x:Name="txtFrom" TextWrapping="Wrap" Margin="8,0,8,0" Background="#FFEFF4F9" BorderBrush="{x:Null}" BorderThickness="0" FontSize="26"/>
+                </Border>
+                <Label Content="到" HorizontalAlignment="Left" Margin="181,67,0,0" VerticalAlignment="Top" Height="39" Width="38" FontSize="20"/>
+                <Border BorderBrush="#FF00A3FF" Margin="216,69,249,271" BorderThickness="2" CornerRadius="10">
+                    <Border.Background>
+                        <SolidColorBrush Color="#FFEFF4F9" Opacity="1"/>
+                    </Border.Background>
+                    <TextBox x:Name="txtTo" TextWrapping="Wrap" Margin="7,0,8,0" Background="#FFEFF4F9" BorderBrush="{x:Null}" BorderThickness="0" FontSize="26"/>
+                </Border>
+                <Label Content="(" HorizontalAlignment="Left" Margin="346,67,0,0" VerticalAlignment="Top" Height="42" Width="34" FontSize="20"/>
+                <Border BorderBrush="#FF00A3FF" Margin="363,69,99,271" BorderThickness="2" CornerRadius="10">
+                    <Border.Background>
+                        <SolidColorBrush Color="#FFEFF4F9" Opacity="1"/>
+                    </Border.Background>
+                    <TextBox x:Name="txtQuan" TextWrapping="Wrap" Margin="7,0,8,0" Background="#FFEFF4F9" BorderBrush="{x:Null}" BorderThickness="0" FontSize="26"/>
+                </Border>
+                <Label Content="个数字)" HorizontalAlignment="Left" Margin="496,69,0,0" VerticalAlignment="Top" Height="40" Width="86" FontSize="20"/>
+                <ScrollViewer  Margin="35,119,51,62">
+                    <TextBox x:Name="txtRe" TextWrapping="Wrap" Width="504" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Height="199"/>
+                </ScrollViewer>
+                <Button x:Name="开始"  Style="{DynamicResource BtnUpLoadStyle}" Content="生成" Margin="38,334,422,8" Background="#FFC5D9C3" Click="btnStart_Click" BorderBrush="#FF39F127" Foreground="Black" FontSize="24">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="清空结果"  Style="{DynamicResource BtnUpLoadStyle}" Content="清空结果" Margin="214,332,246,10" Background="#FFF0E6B7" Click="清空结果_Click" BorderBrush="#FFFF9504" Foreground="Black" FontSize="24">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="全部重置"  Style="{DynamicResource BtnUpLoadStyle}" Content="全部重置" Margin="410,334,51,8" Background="#FFF3B790" Click="btnReset_Click" BorderBrush="#FFFF0404" Foreground="Black" FontSize="24">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Label Content="选取数字" HorizontalAlignment="Left" Margin="163,-1,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Image HorizontalAlignment="Left" Height="43" Margin="187,29,0,0" VerticalAlignment="Top" Width="70" Source="/箭头.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0.084"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Label Content="选取个数" HorizontalAlignment="Left" Margin="438,0,0,0" VerticalAlignment="Top" FontSize="16"/>
+                <Image HorizontalAlignment="Left" Height="42" Margin="467,28,0,0" VerticalAlignment="Top" Width="44" Source="/箭头.png" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0.015"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Button Content="+" HorizontalAlignment="Left" Height="30" Margin="4,160,0,0" VerticalAlignment="Top" Width="26" Background="White" FontSize="20" Click="加_Click"/>
+                <Button Content="-" HorizontalAlignment="Left" Height="30" Margin="4,242,0,0" VerticalAlignment="Top" Width="26" Background="White" FontSize="20" Click="减_Click"/>
+                <Button Content="X" Margin="520,15,15,335" FontFamily="Comic Sans MS" FontSize="22" Click="Button_Click" FontWeight="Normal" Background="{x:Null}" BorderBrush="Red" ToolTip="关闭" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Template >
+                        <ControlTemplate TargetType="{x:Type Button}" >
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="3,3,3,3">
+                                <Border.Background>
+                                    <Brush>#FFDDDDDD</Brush>
+                                </Border.Background>
+                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TextBlock HorizontalAlignment="Left" Height="83" Margin="544,299,0,0" TextWrapping="Wrap" Text="壁纸版权所有©2022 Apple Inc." VerticalAlignment="Top" Width="46"/>
+            </Grid>
+        </Border>
+        <Border BorderThickness="5" BorderBrush="#FF0153D7"  CornerRadius="0,10,10,0" x:Name="top2" Grid.ColumnSpan="2" Margin="70,0,0,0" Visibility="Collapsed">
+            <Border.Background>
+                <ImageBrush ImageSource="/ChMkJlbKxveIJmNDAAlJIHaXmLkAALHtAIRSsgACUk4618.jpg" TileMode="None" Opacity="1"/>
+            </Border.Background>
+            <Grid>
+                <Image HorizontalAlignment="Left" Height="377" VerticalAlignment="Top" Width="515" Source="/Snipaste_2022-04-19_18-37-45.png" Opacity="0.7"/>
+                <Label Content="©2022" HorizontalAlignment="Left" Height="24" Margin="518,336,0,0" VerticalAlignment="Top" Width="50" Foreground="White"/>
+                <Button Content="X" Margin="515,10,9,330" FontFamily="Comic Sans MS" FontSize="22" Click="Button_Click" FontWeight="Normal" Background="{x:Null}" BorderBrush="Red" ToolTip="关闭" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Template >
+                        <ControlTemplate TargetType="{x:Type Button}" >
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="3,3,3,3">
+                                <Border.Background>
+                                    <Brush>#FFDDDDDD</Brush>
+                                </Border.Background>
+                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </Border>
+        <Border BorderThickness="5" BorderBrush="#FF0153D7"  CornerRadius="0,10,10,0" x:Name="top3" Grid.ColumnSpan="2" Margin="70,0,0,0" Visibility="Collapsed">
+            <Border.Background>
+                <ImageBrush ImageSource="/图片8.jpg" TileMode="None" Opacity="1"/>
+            </Border.Background>
+            <Grid>
+                <Label Margin="40,120,70,120" Content="&lt;/暂无设置&gt;" FontSize="72"/>
+                <Button Content="X" Margin="515,10,9,330" FontFamily="Comic Sans MS" FontSize="22" Click="Button_Click" FontWeight="Normal" Background="{x:Null}" BorderBrush="Red" ToolTip="关闭" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Template >
+                        <ControlTemplate TargetType="{x:Type Button}" >
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="3,3,3,3">
+                                <Border.Background>
+                                    <Brush>#FFDDDDDD</Brush>
+                                </Border.Background>
+                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
